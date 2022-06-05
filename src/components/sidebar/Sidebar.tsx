@@ -12,6 +12,7 @@ import {
   useDisclosure,
   BoxProps,
   FlexProps,
+  Image,
 } from "@chakra-ui/react";
 import { FiHome, FiMenu, FiSearch } from "react-icons/fi";
 import { IconType } from "react-icons";
@@ -74,7 +75,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
         <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
+          <Image src="music-logo.png" width="50px" height="50px"></Image>
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -94,9 +95,7 @@ interface NavItemProps extends FlexProps {
 }
 const NavItem = ({ icon, children, href, ...rest }: NavItemProps) => {
   return (
-    <Link
-      to={href}
-    >
+    <Link to={href}>
       <Flex
         align="center"
         p="4"
@@ -139,7 +138,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       bg={useColorModeValue("white", "gray.900")}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
-      justifyContent="flex-start"
+      justifyContent="space-between"
       {...rest}
     >
       <IconButton
@@ -150,7 +149,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
       />
 
       <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
+        <Image src="music-logo.png" width="50px" height="50px"></Image>
       </Text>
     </Flex>
   );
